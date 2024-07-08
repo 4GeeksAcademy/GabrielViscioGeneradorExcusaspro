@@ -1,4 +1,3 @@
-/* eslint-disable */
 import "bootstrap";
 import "./style.css";
 
@@ -22,13 +21,30 @@ window.onload = function() {
   const randomWhat = Aleatorias(what);
   const randomWhen = Aleatorias(when);
 
-  const randomSentence = `${randomWho} ${randomAction} ${randomWhat} ${randomWhen}.`;
+  const randomSentence =
+    randomWho + " " + randomAction + " " + randomWhat + " " + randomWhen;
 
   const resultado = document.getElementById("texto");
   resultado.innerHTML = randomSentence;
+
+  const boton = document.getElementById("generarOracionBtn");
+  boton.onclick = function() {
+    const newRandomWho = Aleatorias(who);
+    const newRandomAction = Aleatorias(action);
+    const newRandomWhat = Aleatorias(what);
+    const newRandomWhen = Aleatorias(when);
+    const newRandomSentence =
+      newRandomWho +
+      " " +
+      newRandomAction +
+      " " +
+      newRandomWhat +
+      " " +
+      newRandomWhen;
+    resultado.innerHTML = newRandomSentence;
+  };
 };
 
 function Aleatorias(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
-console.log(Aleatorias);
